@@ -4,7 +4,7 @@ const db = require('../../db/connection');
 
 // all parties
 router.get('/parties', (req, res) => {
-    const sql = 'SELECT * FROM parties';
+    const sql = `SELECT * FROM parties`;
     db.query(sql, (err, rows) => {
         if (err) {
             res.status(500).json({ error: err.message });
@@ -19,7 +19,7 @@ router.get('/parties', (req, res) => {
 
 // single party
 router.get('/party/:id', (req, res) => {
-    const sql = 'SELECT * FROM parties WHERE id = ?';
+    const sql = `SELECT * FROM parties WHERE id = ?`;
     const params = [req.params.id];
     db.query(sql, params, (err, row) => {
         if (err) {
